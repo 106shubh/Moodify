@@ -1,8 +1,9 @@
 /* General */
 body {
-  font-family: Arial, sans-serif;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   background-color: #e6f4ea;
   color: #2f4f4f;
+  font-weight: 900;
   margin: 0;
   padding: 0;
   padding-top: 80px;
