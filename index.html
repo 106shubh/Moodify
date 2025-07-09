@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Moodfy</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+ <!-- Navbar -->
+<div class="navbar">
+  <div class="logo">Moodfy</div>
+  
+  <div class="hamburger" onclick="toggleHamburgerMenu()">
+    &#9776; <!-- Unicode for ☰ -->
+  </div>
+  
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="meditation.html">Meditation</a>
+    <a href="depression.html">Depression Test</a>
+    <a href="awarness.html">Awareness</a>
+    <a href="support.html">Support</a>
+  </div>
+
+  <div class="profile-menu">
+    <img src="user.png" class="profile-icon" onclick="toggleMenu()" />
+    <div class="menu" id="menuPopup">
+      <a href="login.html">Login</a>
+      <a href="signup.html">Signup</a>
+    </div>
+  </div>
+</div>
+
+  <!-- Hero Section -->
+  <header>
+    <h1>Mental Health & Wellness</h1>
+    <p>Supporting your journey to better mental well-being</p>
+  </header>
+
+  <div class="hero-section">
+    <h2 id="typingText"></h2>
+    <div class="tagline">
+      Access the tools you need to manage stress, anxiety, and depression with our easy-to-use app.
+    </div>
+  </div>
+  
+
+  <!-- Features Section -->
+  <div class="features-section">
+    <h2>Features to help you thrive</h2>
+    <p>Our app is designed to support your mental well-being with a range of features.</p>
+    <div class="features-grid">
+      <div class="feature">
+        <div class="feature-icon">✔️</div>
+        <h3>EmoProbe</h3>
+        <p>Easily log your mood disorder and track your emotional well-being over time.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">✔️</div>
+        <h3>Guided Meditation</h3>
+        <p>Access calming meditation exercises to help reduce stress and anxiety.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">✔️</div>
+        <h3>Personalized Support</h3>
+        <p>Connect with mental health professionals and access personalized resources.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">✔️</div>
+        <h3>Mindfulness Exercises</h3>
+        <p>Practice mindfulness with quick exercises designed to promote a sense of calm.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cards Section -->
+  <div class="content">
+    <div class="card">
+      <h2>What is Mental Wellness?</h2>
+      <p>Mental wellness means having a positive mental state, being emotionally balanced, and coping effectively with life’s challenges.</p>
+    </div>
+
+    <div class="card">
+      <h2>Tips for Mental Wellness</h2>
+      <ul>
+        <li>Get regular sleep</li>
+        <li>Practice mindfulny active</li>
+        <li>Connect with loved ones</li>
+        <li>Stay physically fit</li>
+    </div>
+
+    <div class="card">
+      <h2>Need Help?</h2>
+      <p>It's okay to ask for help. Reach out to a mental health professional or talk to someone you trust.</p>
+    </div>
+  </div>
+  <!-- Floating Chatbot Button -->
+<div class="chatbot-icon" onclick="toggleChatbot()">💬</div>
+
+<!-- Chatbot Popup -->
+<div class="chatbot-popup" id="chatPopup">
+  <div class="chat-header">Moodfy Bot 🤖</div>
+  <div class="chat-body">
+    <p>👋 Hi there! How can I help you today?</p>
+    <p>
+      💡 Try our 
+      <a href="depression.html"><strong>Depression Test</strong></a>, 
+      explore 
+      <a href="meditation.html"><strong>Meditation Sounds</strong></a>, 
+      or connect for 
+      <a href="support.html"><strong>Personalized Support</strong></a>.
+    </p>
+  </div>
+</div>
+<!-- Contact Us Section -->
+<section class="contact-us">
+  <h2>Contact Us</h2>
+  <div class="contact-cards">
+    <a href="tel:+911234567890" class="contact-card">
+      <span>📞</span>
+      <p>Call Us</p>
+    </a>
+    <a href="mailto:support@moodfy.in" class="contact-card">
+      <span>✉️</span>
+      <p>Email</p>
+    </a>
+    <a href="https://www.instagram.com/yourpage" target="_blank" class="contact-card">
+      <span>📷</span>
+      <p>Instagram</p>
+    </a>
+    <a href="https://www.facebook.com/yourpage" target="_blank" class="contact-card">
+      <span>👥</span>
+      <p>Facebook</p>
+    </a>
+    <a href="https://www.linkedin.com/in/yourprofile" target="_blank" class="contact-card">
+      <span>🔗</span>
+      <p>LinkedIn</p>
+    </a>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <div class="footer">
+    &copy; 2025 Mental Health & Wellness. All rights reserved.
+  </div>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Personalized Support - Moodfy</title>
+  <link rel="stylesheet" href="support.css" />
+  <script defer src="support.js"></script>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo">Moodfy</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="meditation.html">Meditation</a>
+      <a href="depression.html">Depression Test</a>
+      <a href="awarness.html">Awareness</a>
+      <a href="support.html">Support</a>
+    </div>
+    <div class="profile-menu">
+      <img src="user.png" class="profile-icon" onclick="toggleMenu()" />
+      <div class="menu" id="menuPopup">
+        <a href="login.html">Login</a>
+        <a href="signup.html">Signup</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <header class="hero-section">
+    <h1>We're here for you 💚</h1>
+    <p>Get personalized guidance and emotional support any time</p>
+  </header>
+
+  
+
+  <!-- Experts -->
+  <section class="experts-section">
+    <h2>Meet Our Mental Health Experts</h2>
+    <div class="experts-grid">
+      <div class="expert-card">
+        <img src="https://i.imgur.com/6VBx3io.png" alt="Dr. Ayesha" />
+        <h4>Dr. Ayesha Sen</h4>
+        <p>Clinical Psychologist</p>
+      </div>
+      <div class="expert-card">
+        <img src="https://i.imgur.com/CFxTKNv.png" alt="Mr. Arjun" />
+        <h4>Mr. Arjun Roy</h4>
+        <p>Therapist & Anxiety Coach</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Options -->
+  <section class="contact-options">
+    <h2>Contact a Support Expert</h2>
+    <div class="contact-cards">
+      <div class="card">
+        <h3>📞 Talk to Us</h3>
+        <p>Available 24/7 on +91-1234567890</p>
+      </div>
+      <div class="card">
+        <h3>📧 Email Support</h3>
+        <p>Drop a message at <a href="mailto:support@moodfy.in">support@moodfy.in</a></p>
+      </div>
+      <div class="card">
+        <h3>💬 Live Chat</h3>
+        <p>Use the chatbot (bottom right) to get started!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Self-Help Tips -->
+  <section class="tips-section">
+    <h2>Self-Help Resources</h2>
+    <ul>
+      <li>🌿 Practice daily breathing & grounding</li>
+      <li>📝 Keep a mental health journal</li>
+      <li>🎧 Use ambient sounds to calm yourself</li>
+      <li>👫 Connect with loved ones</li>
+    </ul>
+  </section>
+
+  <!-- Floating Chatbot Icon & Label -->
+  <div class="chatbot-wrapper">
+    <div class="chatbot-label">Need help? Ask me</div>
+    <div class="chatbot-icon" id="chatbotToggle">💬</div>
+  </div>
+
+  <!-- Chatbot Popup -->
+  <div class="chatbot-popup" id="chatbotPopup">
+    <div class="chat-header">Moodfy Bot</div>
+    <div class="chat-body" id="chatBody">
+      <p>Hello! How can I support you today? 😊</p>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="userInput" placeholder="Type your question..." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    &copy; 2025 Moodfy. All rights reserved.
+  </div>
+</body>
+</html>

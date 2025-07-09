@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Depression Test - Moodfy</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #ccf7cd;
+      font-family: Arial, sans-serif;
+      padding-top: 100px;
+    }
+
+    .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #a8d5ba;
+  padding: 15px 30px;
+  z-index: 1000;
+}
+
+.nav-left {
+  font-weight: bold;
+  font-size: 22px;
+  color: #222;
+  flex: 1;
+}
+
+/* Nav links */
+.nav-center {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex: 1;
+}
+
+.nav-center a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.nav-center a:hover {
+  color: #3e8e7e;
+}
+
+.nav-right {
+  flex: 1;
+}
+
+/* Hamburger icon (hidden by default) */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-center {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    display: none; /* Hide by default */
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  .nav-center.show {
+    display: flex; /* Show when toggled */
+  }
+
+  .nav-left,
+  .nav-right {
+    flex: none;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .quiz-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 10px;
+    }
+
+    .question-box {
+      background-color: white;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .question-box p {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .options label {
+      display: block;
+      margin-bottom: 8px;
+      cursor: pointer;
+    }
+
+    button {
+      display: block;
+      margin: 30px auto;
+      padding: 12px 24px;
+      font-size: 16px;
+      background-color: #7fb77e;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #68a764;
+    }
+
+    .result {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .minimal { color: green; }
+    .mild { color: orange; }
+    .moderate { color: darkorange; }
+    .severe { color: red; }
+  </style>
+</head>
+<body>
+
+ <!-- ✅ Responsive Navbar -->
+<div class="navbar">
+  <!-- Left -->
+  <div class="nav-left">Moodfy</div>
+
+  <!-- Hamburger for mobile -->
+  <div class="hamburger" onclick="toggleMenu()">
+    <i class="fas fa-bars"></i>
+  </div>
+
+  <!-- Center -->
+  <div class="nav-center" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="meditation.html">Meditation</a>
+    <a href="depression.html">Depression Test</a>
+    <a href="awarness.html">Awareness</a>
+    <a href="support.html">Support</a>
+  </div>
+
+  <!-- Right (optional) -->
+  <div class="nav-right"></div>
+</div>
+
+<!-- Font Awesome for hamburger icon -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <h1>🧠 Depression Self-Test</h1>
+
+  <div class="quiz-container">
+    <form id="quizForm">
+
+      <!-- 🔲 Question Template -->
+      <div class="question-box">
+        <p>1. Little interest or pleasure in doing things?</p>
+        <div class="options">
+          <label><input type="radio" name="q1" value="0"> Not at all</label>
+          <label><input type="radio" name="q1" value="1"> Several days</label>
+          <label><input type="radio" name="q1" value="2"> More than half the days</label>
+          <label><input type="radio" name="q1" value="3"> Nearly every day</label>
+        </div>
+      </div>
+
+      <!-- Copy this box 8 more times for q2 to q9 -->
+      <!-- Replace q1 → q2, q3... and change question text accordingly -->
+
+      <div class="question-box">
+        <p>2. Feeling down, depressed, or hopeless?</p>
+        <div class="options">
+          <label><input type="radio" name="q2" value="0"> Not at all</label>
+          <label><input type="radio" name="q2" value="1"> Several days</label>
+          <label><input type="radio" name="q2" value="2"> More than half the days</label>
+          <label><input type="radio" name="q2" value="3"> Nearly every day</label>
+        </div>
+      </div>
+
+      <!-- Keep pasting for q3 to q9... -->
+      <div class="question-box">
+        <p>3. Trouble falling or staying asleep, or sleeping too much?</p>
+        <div class="options">
+          <label><input type="radio" name="q3" value="0"> Not at all</label>
+          <label><input type="radio" name="q3" value="1"> Several days</label>
+          <label><input type="radio" name="q3" value="2"> More than half the days</label>
+          <label><input type="radio" name="q3" value="3"> Nearly every day</label>
+        </div>
+      </div>
+      <div class="question-box">
+        <p>4. Feeling tired or having little energy?</p>
+        <div class="options">
+          <label><input type="radio" name="q4" value="0"> Not at all</label>
+          <label><input type="radio" name="q4" value="1"> Several days</label>
+          <label><input type="radio" name="q4" value="2"> More than half the days</label>
+          <label><input type="radio" name="q4" value="3"> Nearly every day</label>
+        </div>
+      </div>
+  
+      <div class="question-box">
+        <p>5. Poor appetite or overeating?</p>
+        <div class="options">
+          <label><input type="radio" name="q5" value="0"> Not at all</label>
+          <label><input type="radio" name="q5" value="1"> Several days</label>
+          <label><input type="radio" name="q5" value="2"> More than half the days</label>
+          <label><input type="radio" name="q5" value="3"> Nearly every day</label>
+        </div>
+      </div>
+  
+      <div class="question-box">
+        <p>6. Feeling bad about yourself — or that you are a failure?</p>
+        <div class="options">
+          <label><input type="radio" name="q6" value="0"> Not at all</label>
+          <label><input type="radio" name="q6" value="1"> Several days</label>
+          <label><input type="radio" name="q6" value="2"> More than half the days</label>
+          <label><input type="radio" name="q6" value="3"> Nearly every day</label>
+        </div>
+      </div>
+  
+      <div class="question-box">
+        <p>7. Trouble concentrating on things?</p>
+        <div class="options">
+          <label><input type="radio" name="q7" value="0"> Not at all</label>
+          <label><input type="radio" name="q7" value="1"> Several days</label>
+          <label><input type="radio" name="q7" value="2"> More than half the days</label>
+          <label><input type="radio" name="q7" value="3"> Nearly every day</label>
+        </div>
+      </div>
+  
+      <div class="question-box">
+        <p>8. Moving or speaking slowly or being fidgety?</p>
+        <div class="options">
+          <label><input type="radio" name="q8" value="0"> Not at all</label>
+          <label><input type="radio" name="q8" value="1"> Several days</label>
+          <label><input type="radio" name="q8" value="2"> More than half the days</label>
+          <label><input type="radio" name="q8" value="3"> Nearly every day</label>
+        </div>
+      </div>
+  
+      <div class="question-box">
+        <p>9. Thoughts that you'd be better off dead?</p>
+        <div class="options">
+          <label><input type="radio" name="q9" value="0"> Not at all</label>
+          <label><input type="radio" name="q9" value="1"> Several days</label>
+          <label><input type="radio" name="q9" value="2"> More than half the days</label>
+          <label><input type="radio" name="q9" value="3"> Nearly every day</label>
+        </div>
+      </div>
+  
+      <button type="button" onclick="calculateScore()">Get Your Result</button>
+    </form>
+
+    <div class="result" id="resultBox"></div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+    const nav = document.getElementById("navLinks");
+    nav.classList.toggle("show");
+  }
+  
+    function calculateScore() {
+      let total = 0;
+      for (let i = 1; i <= 9; i++) {
+        const radios = document.getElementsByName(`q${i}`);
+        let answered = false;
+        for (let radio of radios) {
+          if (radio.checked) {
+            total += parseInt(radio.value);
+            answered = true;
+          }
+        }
+        if (!answered) {
+          alert(`Please answer question ${i}`);
+          return;
+        }
+      }
+
+      let result = "", moodClass = "";
+
+      if (total <= 4) {
+        result = "Minimal or No Depression 😊";
+        moodClass = "minimal";
+      } else if (total <= 9) {
+        result = "Mild Depression 🟡";
+        moodClass = "mild";
+      } else if (total <= 14) {
+        result = "Moderate Depression 🟠";
+        moodClass = "moderate";
+      } else {
+        result = "Severe Depression 🔴 — Consider professional help.";
+        moodClass = "severe";
+      }
+
+      document.getElementById("resultBox").innerHTML =
+        `Your Score: ${total} / 27<br><span class="${moodClass}">${result}</span>`;
+    }
+  </script>
+
+</body>
+</html>
