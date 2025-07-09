@@ -4,7 +4,39 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Moodfy - Meditation Sounds</title>
-  <script src="meditation.js"></script>
+  <script>
+    const sounds = [
+      new Audio('sounds/rain.mp3'),
+      new Audio('sounds/thunder.mp3'),
+      new Audio('sounds/garage.mp3'),
+      new Audio('sounds/butterfly.mp3'),
+      new Audio('sounds/fire.mp3'),
+      new Audio('sounds/waves.mp3'),
+      new Audio('sounds/wind.mp3'),
+      new Audio('sounds/night.mp3')
+    ];
+
+    sounds.forEach(s => {
+      s.loop = true;
+      s.volume = 0.5;
+    });
+
+    let isPlaying = false;
+
+    function togglePlay() {
+      isPlaying = !isPlaying;
+      sounds.forEach(s => isPlaying ? s.play() : s.pause());
+      document.querySelector('.play-button').innerText = isPlaying ? '❚❚' : '▶';
+    }
+
+    function setVolume(index, val) {
+      sounds[index].volume = val / 100;
+    }
+
+    function toggleHamburgerMenu() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
+  </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     * {
@@ -127,7 +159,7 @@
       gap: 40px;
       position: relative;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      background-color: rgba(0, 0, 0, 0.25); /* more faded effect */
+      background-color: rgba(0, 0, 0, 0.25);
       backdrop-filter: blur(8px);
     }
 
@@ -141,6 +173,31 @@
       padding: 20px;
       min-height: 120px;
       border-radius: 10px;
+      transition: transform 0.2s ease;
+      position: relative;
+    }
+
+    .sound-box:hover {
+      transform: scale(1.05);
+    }
+
+    .sound-box::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: -24px;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 12px;
+      white-space: nowrap;
+      color: white;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    .sound-box:hover::after {
+      opacity: 1;
     }
 
     .sound-box img {
@@ -213,14 +270,14 @@
     <div class="container">
       <button class="play-button" onclick="togglePlay()">▶</button>
 
-      <div class="sound-box"><img src="https://img.icons8.com/ios-filled/50/ffffff/rain.png"/><input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(0, this.value)"></div>
-      <div class="sound-box"><img src="https://img.icons8.com/ios-filled/50/ffffff/lightning-bolt.png"/><input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(1, this.value)"></div>
-      <div class="sound-box"><img src="https://img.icons8.com/ios-filled/50/ffffff/garage.png"/><input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(2, this.value)"></div>
-      <div class="sound-box"><img src="https://img.icons8.com/ios-filled/50/ffffff/butterfly.png"/><input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(3, this.value)"></div>
-      <div class="sound-box"><img src="https://img.icons8.com/ios-filled/50/ffffff/fire-element.png"/><input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(4, this.value)"></div>
-      <div class="sound-box"><img src="https://img.icons8.com/ios-filled/50/ffffff/waves.png"/><input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(5, this.value)"></div>
-      <div class="sound-box"><img src="https://img.icons8.com/ios-filled/50/ffffff/wind.png"/><input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(6, this.value)"></div>
-      <div class="sound-box"><img src="https://img.icons8.com/ios-filled/50/ffffff/crescent-moon.png"/><input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(7, this.value)"></div>
+      <div class="sound-box" data-tooltip="Rain"><img src="https://img.icons8.com/ios-filled/50/ffffff/rain.png"/><input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(0, this.value)"></div>
+      <div class="sound-box" data-tooltip="Thunder"><img src="https://img.icons8.com/ios-filled/50/ffffff/lightning-bolt.png"/><input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(1, this.value)"></div>
+      <div class="sound-box" data-tooltip="Garage"><img src="https://img.icons8.com/ios-filled/50/ffffff/garage.png"/><input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(2, this.value)"></div>
+      <div class="sound-box" data-tooltip="Butterfly"><img src="https://img.icons8.com/ios-filled/50/ffffff/butterfly.png"/><input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(3, this.value)"></div>
+      <div class="sound-box" data-tooltip="Fire"><img src="https://img.icons8.com/ios-filled/50/ffffff/fire-element.png"/><input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(4, this.value)"></div>
+      <div class="sound-box" data-tooltip="Waves"><img src="https://img.icons8.com/ios-filled/50/ffffff/waves.png"/><input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(5, this.value)"></div>
+      <div class="sound-box" data-tooltip="Wind"><img src="https://img.icons8.com/ios-filled/50/ffffff/wind.png"/><input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(6, this.value)"></div>
+      <div class="sound-box" data-tooltip="Night"><img src="https://img.icons8.com/ios-filled/50/ffffff/crescent-moon.png"/><input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(7, this.value)"></div>
     </div>
   </div>
 </body>
