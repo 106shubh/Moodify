@@ -112,7 +112,7 @@
     }
 
     .container {
-      background-image: url('fg.jpg');
+      background-image: url('https://i.ibb.co/YTPmMtt/green-nature-anime-bg.png');
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
@@ -127,7 +127,8 @@
       gap: 40px;
       position: relative;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      backdrop-filter: blur(10px);
+      background-color: rgba(0, 0, 0, 0.25); /* more faded effect */
+      backdrop-filter: blur(8px);
     }
 
     .sound-box {
@@ -136,10 +137,16 @@
       align-items: center;
       justify-content: center;
       color: white;
-      font-size: 32px;
+      font-size: 26px;
       padding: 20px;
       min-height: 120px;
       border-radius: 10px;
+    }
+
+    .sound-box img {
+      width: 40px;
+      margin-bottom: 10px;
+      filter: brightness(1000%);
     }
 
     .slider {
@@ -174,7 +181,7 @@
       }
 
       .sound-box {
-        font-size: 24px;
+        font-size: 20px;
         min-height: 100px;
       }
 
@@ -206,38 +213,14 @@
     <div class="container">
       <button class="play-button" onclick="togglePlay()">▶</button>
 
-      <div class="sound-box">
-        <div>🌧️</div>
-        <input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(0, this.value)">
-      </div>
-      <div class="sound-box">
-        <div>⚡</div>
-        <input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(1, this.value)">
-      </div>
-      <div class="sound-box">
-        <div>🏠</div>
-        <input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(2, this.value)">
-      </div>
-      <div class="sound-box">
-        <div>❌</div>
-        <input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(3, this.value)">
-      </div>
-      <div class="sound-box">
-        <div>🔥</div>
-        <input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(4, this.value)">
-      </div>
-      <div class="sound-box">
-        <div>🌊</div>
-        <input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(5, this.value)">
-      </div>
-      <div class="sound-box">
-        <div>💨</div>
-        <input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(6, this.value)">
-      </div>
-      <div class="sound-box">
-        <div>🌙</div>
-        <input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(7, this.value)">
-      </div>
+      <div class="sound-box"><img src="https://img.icons8.com/ios-filled/50/ffffff/rain.png"/><input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(0, this.value)"></div>
+      <div class="sound-box"><img src="https://img.icons8.com/ios-filled/50/ffffff/lightning-bolt.png"/><input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(1, this.value)"></div>
+      <div class="sound-box"><img src="https://img.icons8.com/ios-filled/50/ffffff/garage.png"/><input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(2, this.value)"></div>
+      <div class="sound-box"><img src="https://img.icons8.com/ios-filled/50/ffffff/butterfly.png"/><input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(3, this.value)"></div>
+      <div class="sound-box"><img src="https://img.icons8.com/ios-filled/50/ffffff/fire-element.png"/><input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(4, this.value)"></div>
+      <div class="sound-box"><img src="https://img.icons8.com/ios-filled/50/ffffff/waves.png"/><input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(5, this.value)"></div>
+      <div class="sound-box"><img src="https://img.icons8.com/ios-filled/50/ffffff/wind.png"/><input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(6, this.value)"></div>
+      <div class="sound-box"><img src="https://img.icons8.com/ios-filled/50/ffffff/crescent-moon.png"/><input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(7, this.value)"></div>
     </div>
   </div>
 </body>
