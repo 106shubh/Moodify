@@ -8,24 +8,31 @@
   <script defer src="support.js"></script>
 </head>
 <body>
-  <!-- Navbar -->
-  <div class="navbar">
-    <div class="logo">Moodfy</div>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="meditation.html">Meditation</a>
-      <a href="depression.html">Depression Test</a>
-      <a href="awarness.html">Awareness</a>
-      <a href="support.html">Support</a>
-    </div>
-    <div class="profile-menu">
-      <img src="user.png" class="profile-icon" onclick="toggleMenu()" />
-      <div class="menu" id="menuPopup">
-        <a href="login.html">Login</a>
-        <a href="sinup.html">Signup</a>
-      </div>
+ <!-- Navbar -->
+<div class="navbar">
+  <div class="logo">Moodify</div>
+
+  <!-- Hamburger Icon (mobile only) -->
+  <div class="hamburger" onclick="toggleMobileMenu()">☰</div>
+
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="meditation.html">Meditation</a>
+    <a href="depression.html">Depression Test</a>
+    <a href="awarness.html">Awareness</a>
+    <a href="support.html">Support</a>
+  </div>
+
+  <!-- Profile Icon -->
+  <div class="profile-menu">
+    <img src="user.png" class="profile-icon" onclick="toggleMenu()" />
+    <div class="menu" id="menuPopup">
+      <a href="login.html">Login</a>
+      <a href="signup.html">Signup</a>
     </div>
   </div>
+</div>
+
 
   <!-- Hero Section -->
   <header class="hero-section">
