@@ -72,4 +72,24 @@
       chatbotPopup.style.display = chatbotPopup.style.display === "block" ? "none" : "block";
     });
   });
+// Toggle profile menu
+  function toggleMenu() {
+    const menu = document.getElementById("menuPopup");
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+  }
 
+  // Toggle mobile nav
+  function toggleMobileMenu() {
+    const navLinks = document.getElementById("navLinks");
+    navLinks.classList.toggle("active");
+  }
+
+  // Optional: close profile menu when clicking outside
+  window.onclick = function (event) {
+    const menu = document.getElementById("menuPopup");
+    if (!event.target.matches('.profile-icon')) {
+      if (menu && menu.style.display === "block") {
+        menu.style.display = "none";
+      }
+    }
+  };
