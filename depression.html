@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Depression Test - Moodify</title>
+  <title>Depression Test - Moodfy</title>
   <style>
     * {
       margin: 0;
@@ -13,9 +13,8 @@
 
     body {
       background-color: #ccf7cd;
-     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      font-family: Arial, sans-serif;
       padding-top: 100px;
-      font-weight: 900;
     }
 
     .navbar {
@@ -159,6 +158,67 @@
     .mild { color: orange; }
     .moderate { color: darkorange; }
     .severe { color: red; }
+     .mood-section {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f3f9f5;
+    border-radius: 12px;
+    margin-top: 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+
+  .mood-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .mood-options button {
+    background-color: #a8d5ba;
+    color: #1f4037;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    min-width: 120px;
+  }
+
+  .mood-options button:hover {
+    background-color: #89c4a7;
+  }
+
+  .music-suggestion {
+    margin-top: 25px;
+    font-size: 18px;
+    color: #333;
+  }
+
+  .music-card {
+    margin-top: 10px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    display: inline-block;
+  }
+
+  .music-card button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #3e8e7e;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .music-card button:hover {
+    background-color: #347265;
+  }
   </style>
 </head>
 <body>
@@ -166,7 +226,7 @@
  <!-- ✅ Responsive Navbar -->
 <div class="navbar">
   <!-- Left -->
-  <div class="nav-left">Moodify</div>
+  <div class="nav-left">Moodfy</div>
 
   <!-- Hamburger for mobile -->
   <div class="hamburger" onclick="toggleMenu()">
@@ -293,7 +353,19 @@
 
     <div class="result" id="resultBox"></div>
   </div>
-
+<!-- Mood Identifier + Music Suggestion -->
+<section class="mood-section">
+  <h2>🎧 How Are You Feeling Today?</h2>
+  <p>Select your mood and we’ll suggest a music vibe for you!</p>
+  <div class="mood-options">
+    <button onclick="suggestMusic('happy')">😊 Happy</button>
+    <button onclick="suggestMusic('sad')">😢 Sad</button>
+    <button onclick="suggestMusic('stressed')">😫 Stressed</button>
+    <button onclick="suggestMusic('angry')">😡 Angry</button>
+    <button onclick="suggestMusic('relaxed')">😌 Relaxed</button>
+  </div>
+  <div id="musicSuggestion" class="music-suggestion"></div>
+</section>
   <script>
     function toggleMenu() {
     const nav = document.getElementById("navLinks");
@@ -336,6 +408,39 @@
       document.getElementById("resultBox").innerHTML =
         `Your Score: ${total} / 27<br><span class="${moodClass}">${result}</span>`;
     }
+     function suggestMusic(mood) {
+    let suggestion = '';
+    switch (mood) {
+      case 'happy':
+        suggestion = `🌞 You’re feeling upbeat! Try some chill acoustic vibes or lo-fi beats.`;
+        break;
+      case 'sad':
+        suggestion = `💧 Feeling blue? Try soft piano or calming rain sounds.`;
+        break;
+      case 'stressed':
+        suggestion = `🧘‍♂️ Take a deep breath. Nature sounds or meditation mantras might help.`;
+        break;
+      case 'angry':
+        suggestion = `🔥 Angry? Go for ambient deep bass or tribal drums to cool off.`;
+        break;
+      case 'relaxed':
+        suggestion = `🌊 You’re chillin’. Keep it flowing with ocean waves or wind chimes.`;
+        break;
+    }
+
+    const container = document.getElementById('musicSuggestion');
+    container.innerHTML = `
+      <div class="music-card">
+        <p>${suggestion}</p>
+        <button onclick="playMusic('${mood}')">🎵 Play Sample</button>
+      </div>
+    `;
+  }
+
+  function playMusic(mood) {
+    alert("Playing sample for: " + mood + " (functionality can be extended with audio)");
+    // TODO: Connect this with real audio sources
+  }
   </script>
 
 </body>
