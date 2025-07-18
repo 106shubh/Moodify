@@ -4,6 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Awareness - Moodify</title>
+
+  <!-- ✅ Font Awesome for Hamburger Icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+
   <style>
     * {
       margin: 0;
@@ -12,31 +18,32 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
+      font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
       background-color: #eaffee;
     }
 
-  /* Navbar */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #a8d5ba;
-  padding: 15px 30px;
-  box-sizing: border-box;
-  flex-wrap: wrap;
+    /* ✅ Navbar */
+    .navbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #a8d5ba;
+      padding: 15px 30px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      flex-wrap: wrap;
     }
+.nav-links a {
+  white-space: nowrap; /* prevents breaking into two lines */
+}
 
     .logo {
       position: absolute;
       left: 30px;
       font-weight: bold;
       font-size: 22px;
+      color: #222;
     }
 
     .nav-links {
@@ -53,87 +60,50 @@
     .nav-links a:hover {
       color: #3e8e7e;
     }
-/* ✅ ORIGINAL Navbar Style Modified for Responsiveness */
-.navbar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #a8d5ba;
-  padding: 15px 30px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  flex-wrap: wrap;
-}
 
-.logo {
-  position: absolute;
-  left: 30px;
-  font-weight: bold;
-  font-size: 22px;
-  color: #222;
-}
+    .hamburger {
+      display: none;
+      font-size: 24px;
+      color: #333;
+      cursor: pointer;
+      position: absolute;
+      right: 30px;
+    }
 
-.nav-links {
-  display: flex;
-  gap: 30px;
-}
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
 
-.nav-links a {
-  text-decoration: none;
-  color: #333;
-  font-weight: bolder;
-}
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #a8d5ba;
+        margin-top: 60px;
+        align-items: center;
+        gap: 20px;
+        padding-bottom: 15px;
+      }
 
-.nav-links a:hover {
-  color: #3e8e7e;
-}
+      .nav-links.active {
+        display: flex;
+      }
 
-/* Hamburger icon hidden by default */
-.hamburger {
-  display: none;
-  font-size: 24px;
-  color: #333;
-  cursor: pointer;
-  position: absolute;
-  right: 30px;
-}
+      .logo {
+        position: relative;
+        left: 0;
+        margin-right: auto;
+      }
 
-/* ✅ Responsive Rules */
-@media (max-width: 768px) {
-  .hamburger {
-    display: block;
-  }
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+      }
+    }
 
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    background-color: #a8d5ba;
-    margin-top: 60px;
-    align-items: center;
-    gap: 20px;
-    padding-bottom: 15px;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .logo {
-    position: relative;
-    left: 0;
-    margin-right: auto;
-  }
-
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 15px;
-  }
-}
-
-    /* 🖼️ Carousel Styles */
+    /* ✅ Carousel Styles */
     .awareness-carousel {
       text-align: center;
       margin-top: 40px;
@@ -180,80 +150,179 @@
     .carousel-controls button:hover {
       background-color: #58a94b;
     }
-  .awareness-section {
-  padding: 40px;
+
+    /* ✅ Quotes Box */
+    .awareness-section {
+      padding: 40px;
+      text-align: center;
+      background: linear-gradient(to bottom, #e9fcef, #d0f4de);
+    }
+
+    #quote-box {
+      background-color: #b2dfdb;
+      color: #1f3b3b;
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      transition: opacity 1s ease-in-out;
+    }
+
+    #quote-text {
+      font-size: 22px;
+      font-style: italic;
+    }
+
+    #quote-author {
+      margin-top: 15px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .fade {
+      opacity: 0;
+    }
+ /* ✅ Floating Robot Icon */
+.quote-bot {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 200;
+  cursor: pointer;
   text-align: center;
-  background: linear-gradient(to bottom, #e9fcef, #d0f4de);
-  font-family: 'Segoe UI', sans-serif;
 }
 
-#quote-box {
-  background-color: #b2dfdb;
-  color: #1f3b3b;
-  padding: 30px;
-  border-radius: 15px;
-  max-width: 600px;
-  margin: auto;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-  transition: opacity 1s ease-in-out;
+.robot-icon {
+  font-size: 48px;
+  color: #4caf50;
+  animation: wave 2s infinite ease-in-out;
+  position: relative;
 }
 
-#quote-text {
-  font-size: 22px;
-  font-style: italic;
+/* 👋 Waving animation */
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  20% { transform: rotate(15deg); }
+  40% { transform: rotate(-10deg); }
+  60% { transform: rotate(10deg); }
+  80% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
 }
 
-#quote-author {
-  margin-top: 15px;
+/* 👁️ Blinking eyes using pseudo-element */
+.robot-icon::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 18px;
+  width: 10px;
+  height: 10px;
+  background: black;
+  border-radius: 50%;
+  animation: blink 4s infinite;
+}
+
+
+@keyframes blink {
+  0%, 90%, 100% { opacity: 1; }
+  92%, 98% { opacity: 0; }
+}
+
+.mood-options {
+  display: none;
+  position: absolute;
+  bottom: 60px;
+  right: 0;
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  animation: floatIn 0.4s ease-in-out;
+}
+
+.mood-options button {
+  display: block;
+  margin: 6px 0;
+  padding: 8px 14px;
+  background: #8bc34a;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
   font-weight: bold;
-  font-size: 18px;
+  width: 100%;
 }
 
-.fade {
-  opacity: 0;
+.mood-options button:hover {
+  background: #689f38;
 }
 
+.quote-bubble {
+  display: none;
+  position: absolute;
+  bottom: 160px;
+  right: 10px;
+  background-color: #fefefe;
+  color: #333;
+  padding: 12px 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  max-width: 220px;
+  font-size: 0.9rem;
+  animation: floatIn 0.3s ease-in-out;
+}
 
   </style>
 </head>
 <body>
-<!-- ✅ Responsive Sticky Navbar -->
+
+<!-- ✅ Responsive Navbar -->
 <div class="navbar">
   <div class="logo">Moodify</div>
-
   <div class="hamburger" onclick="toggleNavbar()">
     <i class="fas fa-bars"></i>
   </div>
-
   <div class="nav-links" id="navLinks">
     <a href="index.html">Home</a>
     <a href="meditation.html">Meditation</a>
     <a href="depression.html">Depression Test</a>
-    <a href="awarness.html">Awareness</a>
+    <a href="awareness.html">Awareness</a> <!-- 🔁 Fixed typo -->
     <a href="support.html">Support</a>
   </div>
 </div>
+<!-- ✅ Robot Icon with Mood Selector -->
+<div class="quote-bot">
+  <i class="fas fa-robot robot-icon" onclick="toggleMoodOptions()"></i>
+  <div class="mood-options" id="moodOptions">
+    <button onclick="showMoodQuote('happy')">😊 Happy</button>
+    <button onclick="showMoodQuote('sad')">😢 Sad</button>
+    <button onclick="showMoodQuote('anxious')">😰 Anxious</button>
+    <button onclick="showMoodQuote('calm')">😌 Calm</button>
+  </div>
+  <div class="quote-bubble" id="quoteBubble">Hello!</div>
+</div>
 
-<!-- Font Awesome for hamburger icon -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
 
-  <!-- ✅ Image Carousel Section -->
-  <div class="awareness-carousel">
-    <h2>Awareness Through Images</h2>
-    <div class="carousel-container">
-      <img class="carousel-img active" src="m.jpg" alt="Slide 1">
-      <img class="carousel-img" src="m2.jpg" alt="Slide 2">
-      <img class="carousel-img" src="m3.jpg" alt="Slide 3">
-      <img class="carousel-img" src="m4.jpg" alt="Slide 4">
+<!-- ✅ Image Carousel Section -->
+<div class="awareness-carousel">
+  <h2>Awareness Through Images</h2>
+  <div class="carousel-container">
+    <img class="carousel-img active" src="m.jpg" alt="Slide 1">
+    <img class="carousel-img" src="m2.jpg" alt="Slide 2">
+    <img class="carousel-img" src="m3.jpg" alt="Slide 3">
+    <img class="carousel-img" src="m4.jpg" alt="Slide 4">
 
-      <div class="carousel-controls">
-        <button onclick="prevImage()">Prev</button>
-        <button onclick="nextImage()">Next</button>
-      </div>
+    <div class="carousel-controls">
+      <button onclick="prevImage()">Prev</button>
+      <button onclick="nextImage()">Next</button>
     </div>
   </div>
- <div class="awareness-section">
+</div>
+
+<!-- ✅ Mental Health Quotes -->
+<div class="awareness-section">
   <h2>Mental Health Awareness</h2>
   <div id="quote-box">
     <p id="quote-text">Loading...</p>
@@ -262,79 +331,104 @@
 </div>
 
 
-
-  <!-- ✅ JS: Image Switching Logic -->
-  <script>
-    function toggleNavbar() {
+<!-- ✅ JS: Carousel + Quotes -->
+<script>
+  function toggleNavbar() {
     const nav = document.getElementById('navLinks');
     nav.classList.toggle('active');
   }
-    const images = document.querySelectorAll('.carousel-img');
-    let currentIndex = 0;
 
-    function showImage(index) {
-      images.forEach((img, i) => {
-        img.classList.toggle('active', i === index);
-      });
-    }
+  const images = document.querySelectorAll('.carousel-img');
+  let currentIndex = 0;
 
-    function nextImage() {
-      currentIndex = (currentIndex + 1) % images.length;
-      showImage(currentIndex);
-    }
-
-    function prevImage() {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      showImage(currentIndex);
-    }
-
-    // Optional: Auto-slide every 4s
-    setInterval(nextImage, 4000);
-
-    //LOAD
-   let quotes = [];
-  let current = 0;
-
-  async function loadQuotes() {
-    try {
-      const response = await fetch("https://api.quotable.io/quotes?limit=10&tags=inspirational|wisdom");
-      if (!response.ok) throw new Error("HTTP error " + response.status);
-      const data = await response.json();
-
-      quotes = data.results;
-      console.log("Quotes loaded:", quotes); // ✅ Debug
-
-      if (quotes && quotes.length > 0) {
-        showQuote(current);
-        setInterval(() => {
-          current = (current + 1) % quotes.length;
-          showQuote(current);
-        }, 7000);
-      } else {
-        document.getElementById("quote-text").innerText = "No quotes available.";
-      }
-    } catch (err) {
-      document.getElementById("quote-text").innerText = "⚠️ Couldn't load quotes.";
-      console.error("Quote fetch error:", err);
-    }
+  function showImage(index) {
+    images.forEach((img, i) => {
+      img.classList.toggle('active', i === index);
+    });
   }
 
-  function showQuote(index) {
-    const quote = quotes[index];
-    if (!quote) return;
-
-    const box = document.getElementById("quote-box");
-    box.classList.add("fade");
-
-    setTimeout(() => {
-      document.getElementById("quote-text").innerText = `"${quote.content}"`;
-      document.getElementById("quote-author").innerText = `— ${quote.author}`;
-      box.classList.remove("fade");
-    }, 400);
+  function nextImage() {
+    currentIndex = (currentIndex + 1) % images.length;
+    showImage(currentIndex);
   }
 
-  window.onload = loadQuotes;
-  </script>
+  function prevImage() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    showImage(currentIndex);
+  }
 
+  setInterval(nextImage, 4000); // Auto-slide every 4s
+
+ 
+
+  // ✅ QUOTE SECTION FIX — PLACE THIS AFTER carousel
+  window.addEventListener("DOMContentLoaded", () => {
+    const quoteText = document.getElementById("quote-text");
+    const quoteAuthor = document.getElementById("quote-author");
+
+    const quoteList = [
+      { text: "You’re doing better than you think. 💛", author: "Unknown" },
+      { text: "Take it one moment at a time.", author: "Anonymous" },
+      { text: "It’s okay to rest. It’s okay to feel.", author: "Self-Care Reminder" },
+      { text: "You are not alone in this journey. 🧠", author: "Mental Health Matters" },
+      { text: "Pause. Breathe. Reset. ✨", author: "Calm Collective" },
+      { text: "Your feelings are valid. Always.", author: "Therapist Wisdom" },
+      { text: "Storms don’t last forever. Neither will this.", author: "Hope Whisper" },
+      { text: "Let go of what you can't control. 💫", author: "Chill Philosophy" },
+      { text: "You’ve got this — even if your mind says otherwise.", author: "Inner Voice" },
+      { text: "Healing is not linear. Take your time. 🕊️", author: "Recovery Circle" }
+    ];
+
+    const randomQuote = quoteList[Math.floor(Math.random() * quoteList.length)];
+    quoteText.textContent = `"${randomQuote.text}"`;
+    quoteAuthor.textContent = `— ${randomQuote.author}`;
+  });
+// Toggle mood options
+function toggleMoodOptions() {
+  const options = document.getElementById("moodOptions");
+  options.style.display = options.style.display === "block" ? "none" : "block";
+}
+
+// Quotes by mood
+const moodQuotes = {
+  happy: [
+    "Happiness is contagious. Spread it! 🌞",
+    "Enjoy the little things. 😊",
+    "Smile, it looks good on you!"
+  ],
+  sad: [
+    "It's okay to cry. You're healing. 🌧️",
+    "You're not alone. 💙",
+    "Feelings are valid. Let them flow."
+  ],
+  anxious: [
+    "Breathe in. Breathe out. You've got this.",
+    "One step at a time. You’re doing well. 🧘‍♂️",
+    "Focus on now. You are safe."
+  ],
+  calm: [
+    "Peace begins with a deep breath. 🕊️",
+    "You are present. You are calm.",
+    "Let your thoughts drift like clouds. ☁️"
+  ]
+};
+
+function showMoodQuote(mood) {
+  const quoteBubble = document.getElementById("quoteBubble");
+  const quotes = moodQuotes[mood] || ["You're doing great!"];
+  const quote = quotes[Math.floor(Math.random() * quotes.length)];
+
+  quoteBubble.textContent = quote;
+  quoteBubble.style.display = "block";
+  document.getElementById("moodOptions").style.display = "none";
+
+  // Auto-hide after 6s
+  setTimeout(() => {
+    quoteBubble.style.display = "none";
+  }, 6000);
+}
+
+
+</script>
 </body>
 </html>
