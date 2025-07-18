@@ -12,10 +12,14 @@
     }
 
     body {
-      background-color: #ccf7cd;
-      font-family: Arial, sans-serif;
-      padding-top: 100px;
-    }
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #eafaf1;
+  margin: 0;
+  padding-top: 80px; /* match navbar height */
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
 
     .navbar {
   position: fixed;
@@ -55,6 +59,11 @@ nav a {
   text-decoration: none;
   color: #333;
   font-weight: bold;
+   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 110px;
+  display: inline-block;
 }
 
 .nav-center a:hover {
@@ -110,16 +119,8 @@ nav a {
       color: #333;
     }
 
-    body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #eafaf1;
-  margin: 0;
-  padding-top: 100px;
-}
-
-
     .depression-test-section {
-  padding: 40px 20px;
+  padding: 60px 20px; /* was 40px */
   max-width: 900px;
   margin: 0 auto;
   text-align: center;
@@ -171,6 +172,28 @@ nav a {
   max-width: 600px;
   margin: 0 auto;
   animation: fadeInUp 0.5s ease;
+}
+#quiz-container {
+  transition: min-height 0.3s ease;
+  min-height: 350px;
+  margin-top: 40px; /* 👈 Add this */
+}
+
+
+#quizBox {
+  animation: fadeInUp 0.4s ease;
+  transition: all 0.3s ease-in-out;
+}
+
+.result {
+  animation: fadeInUp 0.5s ease;
+  font-size: 1.2em;
+  padding: 20px;
+  border-radius: 12px;
+  background: #fff;
+  color: #333;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
 }
 
 .question {
@@ -302,6 +325,13 @@ nav a {
       font-size: 16px;
     }
   }
+  @media (max-width: 768px) {
+  .nav-center a {
+    font-size: 14px;
+    padding: 0 6px;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -392,12 +422,22 @@ nav a {
   const answers = [];
   let currentQuestion = 0;
 
- function startQuiz() {
+function startQuiz() {
   currentQuestion = 0;
   answers.length = 0;
   document.getElementById("quiz-container").style.display = "block";
   document.querySelector(".quiz-intro-card").style.display = "none";
   showQuestion();
+
+  // 🔥 Smooth scroll to quiz
+ // Smooth scroll offset for fixed navbar
+setTimeout(() => {
+  const yOffset = -80; // height of your navbar
+  const element = document.getElementById("quiz-container");
+  const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+  window.scrollTo({ top: y, behavior: 'smooth' });
+}, 100);
+
 }
 
 
