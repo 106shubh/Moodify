@@ -167,7 +167,7 @@
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
   }
 
-  .mood-section {
+   .mood-section {
     text-align: center;
     padding: 40px 20px;
     background-color: #f3f9f5;
@@ -212,47 +212,7 @@
     border-radius: 12px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.08);
     display: inline-block;
-  }
-
-  .music-card button {
-    margin-top: 10px;
-    padding: 8px 16px;
-    background-color: #3e8e7e;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-
-  .music-card button:hover {
-    background-color: #347265;
-  }
-
-  #playerWrapper {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-  }
-
-  .custom-audio-player {
-    width: 90%;
-    max-width: 450px;
-    padding: 15px;
-    border-radius: 16px;
-    background: linear-gradient(to right, #a8edea, #fed6e3);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    text-align: center;
-  }
-
-  .track-info {
-    font-weight: bold;
-    margin-bottom: 8px;
-    color: #2f4f4f;
-  }
-
-  #audioPlayer {
-    width: 100%;
-    border-radius: 8px;
+    max-width: 400px;
   }
   </style>
 </head>
@@ -452,57 +412,29 @@
         `Your Score: ${total} / 27<br><span class="${moodClass}">${result}</span>`;
     }
      function suggestMusic(mood) {
-    let suggestion = '';
-    let trackName = '';
-    switch (mood) {
-      case 'happy':
-        suggestion = `🌞 You’re feeling upbeat! Try some chill acoustic vibes or lo-fi beats.`;
-        trackName = 'Bensound - Ukulele';
-        break;
-      case 'sad':
-        suggestion = `💧 Feeling blue? Try soft piano or calming rain sounds.`;
-        trackName = 'Bensound - Slow Motion';
-        break;
-      case 'stressed':
-        suggestion = `🧘‍♂️ Take a deep breath. Nature sounds or meditation mantras might help.`;
-        trackName = 'Bensound - Tomorrow';
-        break;
-      case 'angry':
-        suggestion = `🔥 Angry? Go for ambient deep bass or tribal drums to cool off.`;
-        trackName = 'Bensound - Actionable';
-        break;
-      case 'relaxed':
-        suggestion = `🌊 You’re chillin’. Keep it flowing with ocean waves or wind chimes.`;
-        trackName = 'Bensound - Creative Minds';
-        break;
-    }
+    const spotifyEmbeds = {
+      happy: `https://open.spotify.com/embed/playlist/37i9dQZF1DXdPec7aLTmlC`,
+      sad: `https://open.spotify.com/embed/playlist/37i9dQZF1DX7qK8ma5wgG1`,
+      stressed: `https://open.spotify.com/embed/playlist/37i9dQZF1DX3PIPIT6lEg5`,
+      angry: `https://open.spotify.com/embed/playlist/37i9dQZF1DWYmmr74INQlb`,
+      relaxed: `https://open.spotify.com/embed/playlist/37i9dQZF1DX3Ogo9pFvBkY`
+    };
+
+    const moodMessages = {
+      happy: `🌞 You’re feeling upbeat! Try these chill acoustic vibes.`,
+      sad: `💧 Feeling blue? Here's a soft emotional playlist for you.`,
+      stressed: `🧘‍♂️ Take a deep breath with these calming tracks.`,
+      angry: `🔥 Angry? Let these intense beats cool you off.`,
+      relaxed: `🌊 Enjoy your peace with these relaxing tunes.`
+    };
 
     const container = document.getElementById('musicSuggestion');
     container.innerHTML = `
       <div class="music-card">
-        <p>${suggestion}</p>
-        <button onclick="playMusic('${mood}', '${trackName}')">🎵 Play Sample</button>
+        <p>${moodMessages[mood]}</p>
+        <iframe style="border-radius:12px" src="${spotifyEmbeds[mood]}" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     `;
-  }
-
-  function playMusic(mood, trackName) {
-    const audio = document.getElementById('audioPlayer');
-    const audioContainer = document.getElementById('customAudioContainer');
-    const trackLabel = document.getElementById('trackName');
-
-    const moodTracks = {
-      happy: 'https://www.bensound.com/bensound-music/bensound-ukulele.mp3',
-      sad: 'https://www.bensound.com/bensound-music/bensound-slowmotion.mp3',
-      stressed: 'https://www.bensound.com/bensound-music/bensound-tomorrow.mp3',
-      angry: 'https://www.bensound.com/bensound-music/bensound-actionable.mp3',
-      relaxed: 'https://www.bensound.com/bensound-music/bensound-creativeminds.mp3'
-    };
-
-    audio.src = moodTracks[mood];
-    audioContainer.style.display = 'block';
-    trackLabel.textContent = trackName;
-    audio.play();
   }
   </script>
 
