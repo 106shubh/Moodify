@@ -1,6 +1,6 @@
-# 👋 Hello, I'm Shubh Mishra!
+# 👋 Hello, I'm Shubham Mishra!
 
-🌿 I'm a passionate front-end developer and creator of [Moodfy](https://github.com/106shubh/moodfy) – a mental wellness web app focused on calm, clarity, and coding.
+🌿 I'm a passionate front-end developer and creator of [Moodify](https://github.com/106shubh/moodfy) – a mental wellness web app focused on calm, clarity, and coding.
 
 ### 💻 Tech I Use
 - HTML, CSS, JavaScript
