@@ -24,16 +24,6 @@ window.addEventListener("click", function (e) {
     menu.style.display = "none";
   }
 });
-const text = "Mental Health Matters. You're Not Alone 💚";
-let i = 0;
-function typeWriter() {
-  if (i < text.length) {
-    document.getElementById("typingText").innerHTML += text.charAt(i);
-    i++;
-    setTimeout(typeWriter, 60);
-  }
-}
-window.onload = typeWriter;
 // Image slider background
 const heroSection = document.querySelector('.hero-section');
 const bgImages = [
