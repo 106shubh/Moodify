@@ -6,7 +6,7 @@
 
 ## 🔗 Live Demo
 
-👉 [https://moodfy.vercel.app/](https://moodfy.vercel.app/)
+👉 https://moodify-chi.vercel.app/
 
 ---
 
