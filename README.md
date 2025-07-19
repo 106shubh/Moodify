@@ -1,18 +1,48 @@
-# 👋 Hello, I'm Shubham Mishra!
+# 🎧 Moodify - Mood-Based Music Recommender
 
-🌿 I'm a passionate front-end developer and creator of [Moodify](https://github.com/106shubh/moodfy) – a mental wellness web app focused on calm, clarity, and coding.
+*Moodify* is a web application that detects your mood using text input and recommends songs accordingly using the Spotify API. Whether you're feeling happy, sad, or chill, Moodify brings you the right music to match your vibe.
 
-### 💻 Tech I Use
+---
+
+## 🔗 Live Demo
+
+👉 [https://moodfy.vercel.app/](https://moodfy.vercel.app/)
+
+---
+
+## 📸 Demo Preview
+
+![Moodify Demo Preview](demo/demo.gif)  
+<!-- Replace with your actual GIF or screenshot -->
+
+---
+
+## ✨ Features
+
+- 🎭 Mood detection from text input (e.g., "I feel sad")
+- 🎵 Real-time song recommendations from Spotify
+- 📱 Mobile-friendly interface
+- 🔒 Secure backend token handling
+- 🚀 Fast and responsive frontend + backend stack
+
+---
+
+## 🛠 Tech Stack
+
+### Frontend:
 - HTML, CSS, JavaScript
-- React (learning), Git & GitHub
-- Figma, Canva for UI/UX design
+- Hosted on *Vercel*
 
-### 🌱 Currently Building
-- Moodfy: Guided meditation & awareness app
-- Personal Portfolio Site
+### Backend:
+- *Node.js* + *Express.js*
+- Spotify Web API
+- Hosted on *Render* / Railway
 
-### 📫 Reach Me
-- 📧 (shubhloveschicken@gmail.com) [My Email]
+---
+
+### 📫 Reach us 
+- 📧 (shubhloveschicken@gmail.com)
+- 📧 (codewsmd004@gmail.com) 
 - 🌐 [My LinkedIn](www.linkedin.com/in/shubham-mishra-b10b30356)
 
 ---
