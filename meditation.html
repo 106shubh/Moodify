@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Moodify - Meditation Sounds</title>
   <script src="meditation.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     * {
       margin: 0;
@@ -19,7 +20,6 @@
       overflow-x: hidden;
     }
 
-    /* Video Background */
     .video-background {
       position: fixed;
       top: 0;
@@ -28,24 +28,22 @@
       height: 100vh;
       object-fit: cover;
       z-index: -1;
-      opacity: 1; /* make it more faded */
+      opacity: 1;
     }
 
-   /* Navbar */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #a8d5ba;
-  padding: 15px 30px;
-  box-sizing: border-box;
-  min-height: 70px;
-  flex-wrap: wrap;
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #a8d5ba;
+      padding: 15px 30px;
+      min-height: 70px;
+      flex-wrap: wrap;
     }
 
     .nav-left {
@@ -87,8 +85,9 @@
     .nav-right {
       flex: 1;
     }
+
     .nowrap {
-    white-space: nowrap;
+      white-space: nowrap;
     }
 
     @media (max-width: 768px) {
@@ -116,7 +115,6 @@
       }
     }
 
-    /* Content */
     .content-wrapper {
       display: flex;
       justify-content: center;
@@ -213,35 +211,62 @@
   <div class="hamburger" onclick="toggleHamburgerMenu()">
     <i class="fas fa-bars"></i>
   </div>
- <div class="nav-center nav-links" id="navLinks">
-  <a href="index.html">Home</a>
-  <a href="meditation.html">Meditation</a>
-  <a href="depression.html"><span class="nowrap">Depression Test</span></a>
-  <a href="awarness.html">Awareness</a>
-  <a href="support.html">Support</a>
-</div>
-
+  <div class="nav-center nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="meditation.html">Meditation</a>
+    <a href="depression.html"><span class="nowrap">Depression Test</span></a>
+    <a href="awarness.html">Awareness</a>
+    <a href="support.html">Support</a>
+  </div>
   <div class="nav-right"></div>
 </div>
-
-<!-- ✅ Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
 <!-- ✅ Main Content Area -->
 <div class="content-wrapper">
   <div class="container">
     <button class="play-button" onclick="togglePlay()">▶</button>
-    
 
-   <div class="sound-box" data-tooltip="Rain"><img src="https://img.icons8.com/ios-filled/50/ffffff/rain.png"/><input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(0, this.value)"></div>
-      <div class="sound-box" data-tooltip="Thunder"><img src="https://img.icons8.com/ios-filled/50/ffffff/lightning-bolt.png"/><input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(1, this.value)"></div>
-      <div class="sound-box" data-tooltip="Garage"><img src="https://img.icons8.com/ios-filled/50/ffffff/garage.png"/><input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(2, this.value)"></div>
-      <div class="sound-box" data-tooltip="Butterfly"><img src="https://img.icons8.com/ios-filled/50/ffffff/butterfly.png"/><input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(3, this.value)"></div>
-      <div class="sound-box" data-tooltip="Fire"><img src="https://img.icons8.com/ios-filled/50/ffffff/fire-element.png"/><input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(4, this.value)"></div>
-      <div class="sound-box" data-tooltip="Waves"><img src="https://icons8.com/icon/p3VxjlyvyPhm/wave-lines"/><input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(5, this.value)"></div>
-      <div class="sound-box" data-tooltip="Wind"><img src="<i class="fa-solid fa-wind"></i>"/><input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(6, this.value)"></div>
-      <div class="sound-box" data-tooltip="Night"><img src="https://img.icons8.com/ios-filled/50/ffffff/crescent-moon.png"/><input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(7, this.value)"></div>
+    <div class="sound-box" data-tooltip="Rain">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/rain.png"/>
+      <input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(0, this.value)">
     </div>
+
+    <div class="sound-box" data-tooltip="Thunder">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/lightning-bolt.png"/>
+      <input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(1, this.value)">
+    </div>
+
+    <div class="sound-box" data-tooltip="Garage">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/garage.png"/>
+      <input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(2, this.value)">
+    </div>
+
+    <!-- ✅ Replaced Butterfly with Bird -->
+    <div class="sound-box" data-tooltip="Bird">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/bird.png"/>
+      <input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(3, this.value)">
+    </div>
+
+    <div class="sound-box" data-tooltip="Fire">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/fire-element.png"/>
+      <input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(4, this.value)">
+    </div>
+
+    <div class="sound-box" data-tooltip="Waves">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/wave.png"/>
+      <input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(5, this.value)">
+    </div>
+
+    <div class="sound-box" data-tooltip="Wind">
+      <i class="fa-solid fa-wind" style="font-size: 36px; color: white;"></i>
+      <input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(6, this.value)">
+    </div>
+
+    <div class="sound-box" data-tooltip="Night">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/crescent-moon.png"/>
+      <input class="slider" type="range" min="0" max="100" value="50" onchange="setVolume(7, this.value)">
+    </div>
+
   </div>
 </div>
 
